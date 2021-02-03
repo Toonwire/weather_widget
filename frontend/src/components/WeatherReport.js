@@ -22,18 +22,18 @@ const ErrorText = withStyles({
   },
 })(Typography);
 
-const getBasicWeatherData = (data) => {
-  const weatherData = {};
-  if (data) {
-    weatherData = {
-      temperature: data.temperature,
-      humidity: data.humidity,
-      windSpeed: data.wind.speed,
-      windDirection: utils.compassDirNameDK(utils.degToDir(weatherData.wind.deg))
-    }
-  }
-  return weatherData;
-}
+// const getBasicWeatherData = (data) => {
+//   const weatherData = {};
+//   if (data) {
+//     weatherData = {
+//       temperature: data.temperature,
+//       humidity: data.humidity,
+//       windSpeed: data.wind.speed,
+//       windDirection: utils.compassDirNameDK(utils.degToDir(weatherData.wind.deg))
+//     }
+//   }
+//   return weatherData;
+// }
 
 /**
  * Component which fetches and displays a weather report
