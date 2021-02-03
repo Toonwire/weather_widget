@@ -6,9 +6,4 @@ And a Node.js middleware API to introduce some server-side control to the availa
 as well as to hide API keys.
 
 #### Disabling JavaScript
-When running this app in a browser which has JavaScript disabled, an empty placeholder UI is shown.
-With the frontend being written in React, the entire render engine is disabled - causing no components to remain rendered.
-Disabling JavaScript thus also disables all interactive functionality which the compnents offer, meaning
-- No app controlled navigation (history is not manipulated)
-- No url search parameter processing or updating 
-- No network requests
+When running with noscripts enabled, the React frontend application will perform a silent redirect to the nodejs server.

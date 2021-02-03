@@ -1,6 +1,8 @@
 ## Weather widget backend
 A small middleware Node.js server between the frontend application and the [OpenWeatherMap API](https://openweathermap.org/api).
 
+Also serves a /nojs endpoint to support viewing the weather data without javascript enabled.
+
 ### Get started
 Clone this project and run `npm install` to install required dependencies.
 
