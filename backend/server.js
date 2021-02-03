@@ -29,6 +29,37 @@ const processOpenWeatherData = (data) => {
   }
 }
 
+const getWeatherReportHTML = (city, temperature, humidity, wind) => {
+  return `
+    <div style="margin: 10px; width: 300px;">
+      <div>
+          <div>Weather in: <b>${city}</b></div>
+          <div>Temperature: <b>${temperature}</b></div>
+          <div>Humidity: <b>${humidity}</b></div>
+          <div>Wind: <b>${wind.speed}</b></div>
+          <form action="http://localhost:5000/nojs/weather" style="display: flex;">
+            <input type="text" name="city" placeholder="City">
+            <button type="submit">Search</button>
+          </form>
+        </ul>
+      </div>
+    </div>
+  `
+}
+
+server.get("/nojs/weather", (req, res) => {
+  const city = req.query.city;
+  // res.redirect(`/weather/html?city=${city}`);
+  weatherAPI.get('/data/2.5/weather', {
+    params: {
+      q: `${city},dk` // append country id
+    }
+  }).then(resp => {
+    const {temperature, humidity, wind} = processOpenWeatherData(resp.data);
+    res.send(getWeatherReportHTML(city, temperature, humidity, wind))
+  });
+});
+
 server.get("/weather", (req, res) => {
   const city = req.query.city;
   
