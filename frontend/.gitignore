@@ -11,6 +11,9 @@
 # production
 /build
 
+# linter cache
+.eslintcache
+
 # dotenv environment variables file
 .env
 .env.test
